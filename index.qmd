@@ -1,0 +1,43 @@
+---
+title: "Pecuária e Desmatamento na Amazônia"
+author: "Leonardo Barbosa"
+format: html
+editor: visual
+bibliography: references.bib
+---
+
+## Introdução
+
+Diversos estudos nos últimos anos tem buscado investigar causas diretas e indiretas do desmataemtno na Amazônia. Alguns artigos evidenciam a forte correlação do desmatamento com a produção de soja e pecuária, por exemplo [@rivero2009]. Este relatório busca explorar de forma simples alguns desses dados (desmatamento e produção agropecuária) utilizando o R.
+
+## Datazoom Amazônia
+
+O [datazoom.amazonia](https://github.com/datazoompuc/datazoom.amazonia) é um pacote do R que busca facilitar o acesso a variadas bases de dados relacionadas à Amazônia brasileira. Ele contempla dados ambientais, sociais e econômicos, passando por temáticas variadas. Buscaremos utilizar aqui os dados relacionados a pecuária e desmatamento.
+
+```{}
+```
+
+## Pecuária nos estados da Amazônia brasileira
+
+```{r}
+#echo: false
+
+library(ggplot2)
+library(datazoom.amazonia)
+
+data <- load_ppm(dataset = "ppm_cow_farming", 
+                 raw_data = TRUE, 
+                 geo_level = "state", 
+                 time_period = 2005:2015, 
+                 language = "pt")
+
+data$ano <- as.numeric(data$ano)
+
+data <- dplyr::filter(data,unidade_da_federacao %in% c('Pará', 'Mato Grosso','Amazonas','Rondônia','Roraima','Acre','Tocantins','Maranhão','Amapá'))
+
+ggplot(data = data, aes(x = ano, y = valor, group = unidade_da_federacao, colour = unidade_da_federacao)) +
+  geom_line()
+
+```
+
+## Referências
