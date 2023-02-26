@@ -8,7 +8,7 @@
 
 <meta name="author" content="Leonardo Barbosa">
 
-<title>Pecuária e Desmatamento na Amazônia</title>
+<title>Pecuária e infrações ambientais na Amazônia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
@@ -65,7 +128,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pecuária e Desmatamento na Amazônia</h1>
+<h1 class="title">Pecuária e infrações ambientais na Amazônia</h1>
 </div>
 
 
@@ -88,7 +151,8 @@ div.csl-indent {
 
 <section id="introdução" class="level2">
 <h2 class="anchored" data-anchor-id="introdução">Introdução</h2>
-<p>Diversos estudos nos últimos anos tem buscado investigar causas diretas e indiretas do desmataemtno na Amazônia. Alguns artigos evidenciam a forte correlação do desmatamento com a produção de soja e pecuária, por exemplo <span class="citation" data-cites="rivero2009">(<a href="#ref-rivero2009" role="doc-biblioref">Rivero et al. 2009</a>)</span>. Este relatório busca explorar de forma simples alguns desses dados (desmatamento e produção agropecuária) utilizando o R.</p>
+<p>Diversos estudos nos últimos anos tem buscado investigar causas diretas e indiretas do desmatamento na Amazônia. Alguns artigos evidenciam a forte correlação do desmatamento com a produção de soja e pecuária, por exemplo <span class="citation" data-cites="rivero2009">(<a href="#ref-rivero2009" role="doc-biblioref">Rivero et al. 2009</a>)</span>. Atores estatais, empresariais e da sociedade civil têm se mobilizado buscando que essas cadeias produtivas destacadas se desvinculem de um quadro de desmatamento, degradação e outras infrações ambientais <span class="citation" data-cites="schmitt2015">(<a href="#ref-schmitt2015" role="doc-biblioref">Schmitt 2015</a>)</span>.</p>
+<p>Este relatório busca, utilizando o R, explorar/visualizar (de forma bastante simples e pouco ambiciosa) alguns dados relacionados ao tema; a partir dessas impressões e visualizações iniciais, podem ser feitas análises mais complexas.</p>
 </section>
 <section id="datazoom-amazônia" class="level2">
 <h2 class="anchored" data-anchor-id="datazoom-amazônia">Datazoom Amazônia</h2>
@@ -101,17 +165,503 @@ div.csl-indent {
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p><img src="img/livestock_amz.png" class="img-fluid"></p>
+</section>
+<section id="infrações-ambientais-aplicadas---ibama1" class="level2">
+<h2 class="anchored" data-anchor-id="infrações-ambientais-aplicadas---ibama1">Infrações ambientais aplicadas - IBAMA<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="cell-output-display">
+
+<div id="kkyrfhzqav" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+:where(#kkyrfhzqav) .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+:where(#kkyrfhzqav) .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+:where(#kkyrfhzqav) .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+:where(#kkyrfhzqav) .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+:where(#kkyrfhzqav) .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+:where(#kkyrfhzqav) .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+:where(#kkyrfhzqav) .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+:where(#kkyrfhzqav) .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+:where(#kkyrfhzqav) .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+:where(#kkyrfhzqav) .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+:where(#kkyrfhzqav) .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+:where(#kkyrfhzqav) .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+:where(#kkyrfhzqav) .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+:where(#kkyrfhzqav) .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kkyrfhzqav) .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+:where(#kkyrfhzqav) .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+:where(#kkyrfhzqav) .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kkyrfhzqav) .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+:where(#kkyrfhzqav) .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kkyrfhzqav) .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+:where(#kkyrfhzqav) .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kkyrfhzqav) .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+:where(#kkyrfhzqav) .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+:where(#kkyrfhzqav) .gt_left {
+  text-align: left;
+}
+
+:where(#kkyrfhzqav) .gt_center {
+  text-align: center;
+}
+
+:where(#kkyrfhzqav) .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+:where(#kkyrfhzqav) .gt_font_normal {
+  font-weight: normal;
+}
+
+:where(#kkyrfhzqav) .gt_font_bold {
+  font-weight: bold;
+}
+
+:where(#kkyrfhzqav) .gt_font_italic {
+  font-style: italic;
+}
+
+:where(#kkyrfhzqav) .gt_super {
+  font-size: 65%;
+}
+
+:where(#kkyrfhzqav) .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+:where(#kkyrfhzqav) .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+:where(#kkyrfhzqav) .gt_indent_1 {
+  text-indent: 5px;
+}
+
+:where(#kkyrfhzqav) .gt_indent_2 {
+  text-indent: 10px;
+}
+
+:where(#kkyrfhzqav) .gt_indent_3 {
+  text-indent: 15px;
+}
+
+:where(#kkyrfhzqav) .gt_indent_4 {
+  text-indent: 20px;
+}
+
+:where(#kkyrfhzqav) .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Estado">Estado</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Valor total de multas pagas (1991-2023)">Valor total de multas pagas (1991-2023)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Total de multas aplicadas (1991-2023)">Total de multas aplicadas (1991-2023)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Estado" class="gt_row gt_left">PA</td>
+<td headers="Valor total de multas pagas (1991-2023)" class="gt_row gt_right">190057819</td>
+<td headers="Total de multas aplicadas (1991-2023)" class="gt_row gt_right">79514</td></tr>
+    <tr><td headers="Estado" class="gt_row gt_left">MA</td>
+<td headers="Valor total de multas pagas (1991-2023)" class="gt_row gt_right">157145765</td>
+<td headers="Total de multas aplicadas (1991-2023)" class="gt_row gt_right">31893</td></tr>
+    <tr><td headers="Estado" class="gt_row gt_left">MT</td>
+<td headers="Valor total de multas pagas (1991-2023)" class="gt_row gt_right">128417420</td>
+<td headers="Total de multas aplicadas (1991-2023)" class="gt_row gt_right">62600</td></tr>
+    <tr><td headers="Estado" class="gt_row gt_left">TO</td>
+<td headers="Valor total de multas pagas (1991-2023)" class="gt_row gt_right">83986349</td>
+<td headers="Total de multas aplicadas (1991-2023)" class="gt_row gt_right">57913</td></tr>
+    <tr><td headers="Estado" class="gt_row gt_left">RO</td>
+<td headers="Valor total de multas pagas (1991-2023)" class="gt_row gt_right">78076525</td>
+<td headers="Total de multas aplicadas (1991-2023)" class="gt_row gt_right">59563</td></tr>
+    <tr><td headers="Estado" class="gt_row gt_left">AM</td>
+<td headers="Valor total de multas pagas (1991-2023)" class="gt_row gt_right">50669718</td>
+<td headers="Total de multas aplicadas (1991-2023)" class="gt_row gt_right">29125</td></tr>
+    <tr><td headers="Estado" class="gt_row gt_left">RR</td>
+<td headers="Valor total de multas pagas (1991-2023)" class="gt_row gt_right">18254810</td>
+<td headers="Total de multas aplicadas (1991-2023)" class="gt_row gt_right">13547</td></tr>
+    <tr><td headers="Estado" class="gt_row gt_left">AC</td>
+<td headers="Valor total de multas pagas (1991-2023)" class="gt_row gt_right">9767054</td>
+<td headers="Total de multas aplicadas (1991-2023)" class="gt_row gt_right">15413</td></tr>
+    <tr><td headers="Estado" class="gt_row gt_left">AP</td>
+<td headers="Valor total de multas pagas (1991-2023)" class="gt_row gt_right">7876630</td>
+<td headers="Total de multas aplicadas (1991-2023)" class="gt_row gt_right">8560</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="referências" class="level2 unnumbered">
 
 
 </section>
 
+
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referências</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-rivero2009" class="csl-entry" role="doc-biblioentry">
 Rivero, Sérgio, Oriana Almeida, Saulo Ávila, and Wesley Oliveira. 2009. <span>“Pecuária e Desmatamento: Uma Análise Das Principais Causas Diretas Do Desmatamento Na Amazônia.”</span> <em>Nova Economia</em> 19 (1): 41–66. <a href="https://doi.org/10.1590/S0103-63512009000100003">https://doi.org/10.1590/S0103-63512009000100003</a>.
 </div>
-</div></section></div></main>
+<div id="ref-schmitt2015" class="csl-entry" role="doc-biblioentry">
+Schmitt, Jair. 2015. <span>“Crime Sem Castigo : A Efetividade Da Fiscalização Ambiental Para o Controle Do Desmatamento Ilegal Na Amazônia,”</span> September. <a href="https://doi.org/10.26512/2015.05.T.19914">https://doi.org/10.26512/2015.05.T.19914</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.gov.br/ibama/pt-br">Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -1,5 +1,5 @@
 ---
-title: "Pecuária e Desmatamento na Amazônia"
+title: "Pecuária e infrações ambientais na Amazônia"
 author: "Leonardo Barbosa"
 format: html
 editor: visual
@@ -9,7 +9,9 @@ bibliography: references.bib
 
 ## Introdução
 
-Diversos estudos nos últimos anos tem buscado investigar causas diretas e indiretas do desmataemtno na Amazônia. Alguns artigos evidenciam a forte correlação do desmatamento com a produção de soja e pecuária, por exemplo [@rivero2009]. Este relatório busca explorar de forma simples alguns desses dados (desmatamento e produção agropecuária) utilizando o R.
+Diversos estudos nos últimos anos tem buscado investigar causas diretas e indiretas do desmatamento na Amazônia. Alguns artigos evidenciam a forte correlação do desmatamento com a produção de soja e pecuária, por exemplo [@rivero2009]. Atores estatais, empresariais e da sociedade civil têm se mobilizado buscando que essas cadeias produtivas destacadas se desvinculem de um quadro de desmatamento, degradação e outras infrações ambientais [@schmitt2015].
+
+Este relatório busca, utilizando o R, explorar/visualizar (de forma bastante simples e pouco ambiciosa) alguns dados relacionados ao tema; a partir dessas impressões e visualizações iniciais, podem ser feitas análises mais complexas.
 
 ## Datazoom Amazônia
 
@@ -23,6 +25,26 @@ library(ggplot2)
 data <- read.csv('dados/dados_pecuaria.csv')
 ggplot(data = data, aes(x = ano, y = valor, group = unidade_da_federacao, colour = unidade_da_federacao)) +
   geom_line()
+
+```
+
+![](img/livestock_amz.png)
+
+## Infrações ambientais aplicadas - IBAMA[^1] 
+
+[^1]: [Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis](https://www.gov.br/ibama/pt-br)
+
+```{r}
+#|echo: false
+library(gt)
+library(dplyr)
+
+fines_sum <- read.csv('dados/multas.csv',check.names = F) |> select(-1)
+fines_sum <- fines_sum[order(-fines_sum$`Valor total de multas pagas (1991-2023)`),]
+gt(fines_sum)
+```
+
+``` r
 
 ```
 
