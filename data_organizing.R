@@ -24,6 +24,8 @@ data$ano <- as.numeric(data$ano)
 
 data <- dplyr::filter(data,unidade_da_federacao %in% c('Pará', 'Mato Grosso','Amazonas','Rondônia','Roraima','Acre','Tocantins','Maranhão','Amapá'))
 
+write.csv(data,'dados/dados_pecuaria.csv')
+
 ggplot(data = data, aes(x = ano, y = valor, group = unidade_da_federacao, colour = unidade_da_federacao)) +
   geom_line()
 
